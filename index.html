@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Optimization games</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600&display=swap">
+<style>
+  /* Layout: one column of game entries, each a thumbnail beside its text; stacks on phones. */
+  :root { --bg: #ffffff; --fg: #111827; --muted: #5f6b7a; --line: #dfe3ea; --accent: #003DA5; --accent-fg: #ffffff;
+          --display: "Space Grotesk", system-ui, sans-serif;
+          --body: Inter, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f141c; --fg: #e8ecf2; --muted: #9aa6b6; --line: #2a3443;
+          --accent: #7aa7ff; --accent-fg: #0f141c; color-scheme: dark; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--body); color: var(--fg); background: var(--bg); line-height: 1.5;
+         padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+         padding-block: 24px 40px; }
+  .wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  h1 { margin: 0; font-family: var(--display); font-size: 28px; color: var(--accent); text-wrap: balance; }
+  header p { margin: 6px 0 0; color: var(--muted); max-width: 62ch; }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+  li { display: flex; gap: 18px; align-items: flex-start; padding-block: 18px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+  canvas { border: 2px solid var(--accent); flex: none; }
+  .text { flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  h2 { margin: 0; font-family: var(--display); font-size: 20px; }
+  .problem { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+  .text p { margin: 0; max-width: 62ch; }
+  a.play { align-self: flex-start; background: var(--accent); color: var(--accent-fg); text-decoration: none;
+           padding: 7px 14px; border-radius: 6px; font-weight: 600; font-size: 14px; }
+  a.play:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Optimization games</h1>
+    <p>Operations research problems recast as games: a board, rules that encode the constraints, and a goal that
+       is the objective. People can play them, and the same games are used to train learning agents.</p>
+  </header>
+  <ul id="games"></ul>
+</div>
+<script>
+// One entry per game. To add a game, append an object; "thumb" draws a small picture of its board.
+const GAMES = [
+  {
+    title: "Packing game",
+    problem: "Two-dimensional bin packing",
+    text: "Place rectangular blocks on as few sheets as possible: select a block, move it, place it. " +
+          "Each level shows its proven optimum and the score of the bottom-left heuristic.",
+    url: "../packing-game/",
+    thumb: [[0, 0, 6, 4, "#003DA5"], [6, 0, 4, 7, "#5B8DEF"], [0, 4, 3, 6, "#9CA3AF"], [3, 4, 3, 3, "#E69F00"],
+            [3, 7, 7, 3, "#1F2937"]],
+  },
+];
+
+const list = document.getElementById("games");
+for (const g of GAMES) {
+  const li = document.createElement("li");
+  const cv = document.createElement("canvas");
+  cv.width = cv.height = 120;
+  cv.setAttribute("aria-hidden", "true");
+  const ctx = cv.getContext("2d"), c = 12;
+  ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, 120, 120);
+  for (const [x, y, w, h, col] of g.thumb) { ctx.fillStyle = col; ctx.fillRect(x * c + 1, (10 - y - h) * c + 1, w * c - 2, h * c - 2); }
+  const t = document.createElement("div"); t.className = "text";
+  t.innerHTML = `<span class="problem"></span><h2></h2><p></p><a class="play">Play</a>`;
+  t.querySelector(".problem").textContent = g.problem;
+  t.querySelector("h2").textContent = g.title;
+  t.querySelector("p").textContent = g.text;
+  const a = t.querySelector("a"); a.href = g.url; a.setAttribute("aria-label", "Play " + g.title);
+  li.append(cv, t);
+  list.append(li);
+}
+</script>
+</body>
+</html>
