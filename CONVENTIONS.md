@@ -27,7 +27,8 @@ in the others. When a game needs something not covered here, keep to the spirit 
    4. The touch pad (on-screen buttons for phones).
    5. `help`: "Keys" first, listing only the keys needed to play (moves, the main action, undo); everything
       else (replays, references, levels, restart) is done with the buttons and is not listed, even if a shortcut
-      exists. Then how the board reads, then what the references are (one sentence each).
+      exists. The help is always visible (never collapsed) and has exactly three paragraphs, in this order, headed
+      **Keys:**, **The board:** (how the board reads), **References:** (what each reference is, one sentence each).
    6. For games from a paper: a collapsed `<details class="paper">` "Paper's reported averages (paper instances,
       not this one)".
 4. **Footer**: the full citation of the paper the game comes from and the credit line when the page is an
