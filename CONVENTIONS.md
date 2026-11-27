@@ -95,7 +95,9 @@ end)". Games with no hidden future (the packing game) show them directly.
 - The player's own solution: accent navy. References, in this order of use: optimum or perfect-information
   bound `#0072B2`, first heuristic `#E69F00`, second `#CC79A7`, third `#009E73`, fourth `#56B4E9`, fifth `#D55E00` (Okabe-Ito,
   colour-blind safe). The same reference has the same colour in the stats swatch, the overlay and the replay.
-- What the player already placed is drawn in one neutral colour; only the last placed item is highlighted (accent).
+- What the player already placed is drawn in one neutral colour; only the last placed item is highlighted (accent),
+  except where colour carries information: in the packing game, colour encodes the block type (one colour per
+  width x height, identical blocks share it), and the last placed block is outlined instead.
 
 ## Checks
 
