@@ -19,14 +19,11 @@ in the others. When a game needs something not covered here, keep to the spirit 
       objective comes first, with "(higher is better)" or "(lower is better)" in its label.
    2. `label` "References on this instance", then a `stats` grid with one row per reference (optimum, heuristics,
       bounds), in the same unit as the objective. Each row starts with a small colour swatch (`.sw`), the colour
-      the reference has in overlays and replays. Values not known before the end show "-" until then if showing
-      them would reveal the future.
+      the reference has in overlays and replays.
    3. **Actions row**, always these two buttons in this order:
       - **"Watch replays"** (key `W`), `id="watch"`: opens the replay bar.
       - **"Show references"** (key `O`), `id="refs"`: draws the references over the board (routes, paths, load
         profiles, the optimal packing next to yours); the label switches to "Hide references".
-      If a game cannot show a reference yet (it would reveal the future), the button is disabled with a `title`
-      saying when it becomes available, or it asks for confirmation (see "Spoilers").
    4. The touch pad (on-screen buttons for phones).
    5. `help`: "Keys" first (one paragraph, game keys then replay keys), then how the board reads, then what the
       references are (one sentence each).
@@ -84,10 +81,9 @@ A focused link followed by `Enter` is never captured by the game.
 
 ## Spoilers
 
-Replays and references of the instance being played can reveal what is still to come (requests, EVs, prices).
-Before the game is over, "Watch replays" and "Show references" first show an inline confirmation ("This shows what
-is still to come on this instance." [Reveal] [Cancel]); after confirming, the stats grid notes "(seen before the
-end)". Games with no hidden future (the packing game) show them directly.
+None: "Watch replays" and "Show references" work at any time, without confirmation, also during a game (decided
+by the owner for class use). They do not end the game; closing the replay bar or hiding the references returns to
+the game as it was.
 
 ## Colours
 
