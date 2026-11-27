@@ -25,12 +25,13 @@ in the others. When a game needs something not covered here, keep to the spirit 
       - **"Show references"** (key `O`), `id="refs"`: draws the references over the board (routes, paths, load
         profiles, the optimal packing next to yours); the label switches to "Hide references".
    4. The touch pad (on-screen buttons for phones).
-   5. `help`: "Keys" first (one paragraph, game keys then replay keys), then how the board reads, then what the
-      references are (one sentence each).
+   5. `help`: "Keys" first, listing only the keys needed to play (moves, the main action, undo); everything
+      else (replays, references, levels, restart) is done with the buttons and is not listed, even if a shortcut
+      exists. Then how the board reads, then what the references are (one sentence each).
    6. For games from a paper: a collapsed `<details class="paper">` "Paper's reported averages (paper instances,
       not this one)".
-4. **Footer**: the full citation of the paper the game comes from, the credit line when the page is an
-   independent version, and where the assumptions are listed (README.md).
+4. **Footer**: the full citation of the paper the game comes from and the credit line when the page is an
+   independent version. No link to the repository or its README.
 
 ## Names
 
