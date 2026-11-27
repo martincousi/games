@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
+<meta name="description" content="Browser games that recast operations research problems (vehicle routing, electric vehicle charging, bin packing) as games, by Martin Cousineau, HEC Montréal.">
 <title>Optimization games</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600&display=swap">
 <style>
@@ -30,11 +30,16 @@
   a.play { align-self: flex-start; background: var(--accent); color: var(--accent-fg); text-decoration: none;
            padding: 7px 14px; border-radius: 6px; font-weight: 600; font-size: 14px; }
   a.play:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+  /* Links back to the main site and the list of games */
+  nav.crumbs { font-size: 13px; color: var(--muted); padding-top: 8px; }
+  nav.crumbs a { color: var(--accent); text-decoration: none; }
+  nav.crumbs a:hover, nav.crumbs a:focus-visible { text-decoration: underline; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
+    <nav class="crumbs" aria-label="Site"><a href="https://martincousi.github.io/">&larr; Martin Cousineau</a></nav>
     <h1>Optimization games</h1>
     <p>Operations research problems recast as games: a board, rules that encode the constraints, and a goal that
        is the objective. People can play them, and the same games are used to train learning agents.</p>
